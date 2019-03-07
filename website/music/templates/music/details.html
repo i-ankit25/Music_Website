@@ -1,0 +1,21 @@
+{% extends 'music/base.html' %}
+{%block title%}Album details{%endblock%}
+
+{%block body%}
+<div class="container-fluid">
+<div class="card" style="width:18 rem;">
+  <img class="card-img-top" src="{{ album.album_logo.url}}" >
+<div class="card-body">
+  <h3 class="card-title">{{ album.album_title }}</h3>
+</div>
+    <div class="card-text">
+    </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{ album.artist }}</li>
+    {% for song in album.song_set.all%}
+            <li class="list-group-item">{{ song.song_title}}</li>
+    {% endfor %}
+</ul>
+</div>
+</div>
+{% endblock %}
